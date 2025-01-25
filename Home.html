@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1a1a1a, #121212);
+            color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: none;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: rgba(251, 246, 237, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+        }
+
+        a:hover ~ .custom-cursor,
+        .hover-effect:hover ~ .custom-cursor {
+            width: 50px;
+            height: 50px;
+            background: rgba(227, 59, 110, 0.6);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #121212;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar .logo {
+            font-size: 2.5rem;
+            color: #f8a500;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            color: #fff;
+            background-color: #f8a500;
+            transform: scale(1.1);
+            text-shadow: 0 2px 10px rgba(248, 165, 0, 0.8);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+            text-align: center; /* Ensure text is centered */
+        }
+
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 4px solid #333;
+            overflow: hidden;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
+            margin-right: 40px;
+            transition: transform 0.33s ease;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .content {
+            flex: 1;
+            max-width: 600px;
+            padding-top: 30px;
+            position: relative; /* Set relative positioning */
+            top: -25px; /* Move content up */
+        }
+
+        .content h1 {
+            font-size: 3.8rem;
+            color: #f8a500;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            margin-right: 15px;
+            background-color: #f8a500; /* Same as navbar hover color */
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .buttons a:hover {
+            background-color: #e33b6e; /* Slightly darker hover color */
+            transform: scale(1.05);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #f8a500;
+            font-size: 1.8rem;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #e33b6e;
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            margin-top: 50px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #f8a500;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e33b6e;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content {
+                padding-left: 0;
+                text-align: center;
+            }
+
+            .content h1 {
+                font-size: 2.5rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .buttons a {
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Remove cursor when hovering over input fields, buttons, and links */
+        input, textarea, button, a {
+            cursor: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom-cursor" id="cursor"></div>
+
+    <div class="navbar">
+        <div class="logo">Bhunesh Sen</div>
+        <div>
+            <a href="#">Home</a>
+            <a href="Skills.html">Skills</a>
+            <a href="index.html">Resume</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="profile-image">
+            <img src="Photo.jpg" alt="Your Photo">
+        </div>
+        <div class="content">
+            <h1>Bhunesh Sen</h1>
+            <p>Hi! I'm an Embedded Developer with expertise in C++, Python, and hardware-software integration. Passionate about building innovative projects and contributing to impactful solutions.</p>
+            <div class="buttons">
+                <a href="resume.pdf">Download CV</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/bhuneshsen" target="_blank" class="fab fa-linkedin"></a>
+                <a href="https://twitter.com/bhuneshsen" target="_blank" class="fab fa-twitter"></a>
+                <a href="https://github.com/BhuneshSen" target="_blank" class="fab fa-github"></a>
+                <a href="mailto:bhuneshsen@gmail.com" target="_blank" class="fas fa-envelope"></a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Bhunesh Sen | <a href="https://www.linkedin.com/in/bhuneshsen" target="_blank">LinkedIn</a> | <a href="https://github.com/BhuneshSen" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.top = `${e.clientY}px`;
+            cursor.style.left = `${e.clientX}px`;
+        });
+    </script>
+</body>
+</html>
