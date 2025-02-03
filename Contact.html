@@ -17,10 +17,44 @@
         input, textarea, button {
             cursor: none; /* Remove pointer when hovering over these elements */
         }
-        
+
         button:hover {
             cursor: none; /* Ensure the cursor is also removed on hover state */
         }
+
+        /* Navigation Bar */
+        nav {
+            background: #000000;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f8f8f8;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f8a500;
+        }
+
         #contact {
             position: absolute;
             z-index: 2;
@@ -98,7 +132,7 @@
             color: #f8a500;
             text-decoration: none;
         }
-        
+
         footer a:hover {
             color: #e33b6e;
         }
@@ -127,6 +161,16 @@
 <body>
 
     <div class="custom-cursor" id="cursor"></div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+        </ul>
+    </nav>
 
     <!-- 3D Animated Background with Particles -->
     <div id="particles"></div>
