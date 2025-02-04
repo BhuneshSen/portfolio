@@ -15,14 +15,15 @@
             color: #f8f8f8;
             display: flex;
             flex-direction: column;
+            cursor: none; /* Hide the default cursor */
         }
 
         .custom-cursor {
             position: fixed;
             top: 0;
             left: 0;
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             background: rgba(251, 246, 237, 0.8);
             border-radius: 50%;
             pointer-events: none;
@@ -52,10 +53,11 @@
             margin: 0;
             padding: 0;
             justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping of nav items */
         }
 
         nav ul li {
-            margin: 0 12px;
+            margin: 8px 12px; /* Adjusted margin for better spacing */
         }
 
         nav ul li a {
@@ -69,8 +71,13 @@
             color: #f8a500;
         }
 
+        nav ul li a, footer a {
+            cursor: none; /* Hide the default cursor */
+        }
+
         .container {
-            width: 70%;
+            width: 90%; /* Adjusted width for better responsiveness */
+            max-width: 1200px; /* Maximum width for larger screens */
             margin: 0 auto;
             padding: 20px 0;
             flex-grow: 1;
@@ -86,19 +93,21 @@
 
         .skills-container {
             display: flex;
-            justify-content: space-around;
+            flex-wrap: wrap; /* Allow wrapping of skill cards */
+            justify-content: center; /* Center skill cards */
             gap: 15px;
-            margin-top: 50px;  /* Increased margin-top to shift skills section more down */
+            margin-top: 50px;
         }
 
         .skill-card {
-            width: 22%;
+            width: 100%; /* Full width by default */
+            max-width: 300px; /* Maximum width for skill cards */
             text-align: center;
             padding: 15px;
             transition: transform 0.3s ease;
             opacity: 0;
             animation: fadeIn 1s ease forwards;
-            line-height: 1.6;  /* Added to keep line height consistent */
+            line-height: 1.6;
         }
 
         .skill-card:hover {
@@ -118,7 +127,7 @@
         .skill-card p {
             font-size: 0.9rem;
             color: #e0e0e0;
-            line-height: 1.6;  /* Consistent line-height for paragraph */
+            line-height: 1.6;
             transition: font-size 0.3s ease;
         }
 
